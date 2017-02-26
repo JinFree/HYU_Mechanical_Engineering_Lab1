@@ -1,4 +1,4 @@
-# HYU_Mechanical_Engineering_Lab1
+﻿# HYU_Mechanical_Engineering_Lab1
 한양대학교 기계공학실험1
 
 Finite Difference Method for Computational Fluid Dynamics
@@ -6,3 +6,6 @@ Finite Difference Method for Computational Fluid Dynamics
 
 Undergraduate course
 학부 수업
+
+강의자료 링크: 
+http://sharif.ir/~moosavi/Hoffmann_v1.pdf
