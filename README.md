@@ -7,5 +7,5 @@ Finite Difference Method for Computational Fluid Dynamics
 Undergraduate course
 학부 수업
 
-강의자료 링크: 
+Hoffman 교재 링크: 
 http://sharif.ir/~moosavi/Hoffmann_v1.pdf
