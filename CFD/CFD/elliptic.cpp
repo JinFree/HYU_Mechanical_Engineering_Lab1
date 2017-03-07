@@ -1,4 +1,4 @@
-#include "elliptic.h"
+ï»¿#include "elliptic.h"
 namespace Elliptic
 {	
 	double w_Elliptic = 1.0;	//relaxation factor
@@ -85,7 +85,7 @@ namespace Elliptic
 	{
 		double beta = GSx / GSy;
 		int iter = 0;
-		switch (scheme) //Switch¸¦ ÀÌ¿ëÇÏ¿© ¹Ì¸® ¼³Á¤ÇÑ Scheme¿¡ ¾Ë¸ÂÀº ¿¬»êÀ» ¼öÇàÇÏµµ·Ï ÇÔ
+		switch (scheme) //Switchë¥¼ ì´ìš©í•˜ì—¬ ë¯¸ë¦¬ ì„¤ì •í•œ Schemeì— ì•Œë§ì€ ì—°ì‚°ì„ ìˆ˜í–‰í•˜ë„ë¡ í•¨
 		{
 		case 1:
 			iter = CalJacobi(T, Tnew, beta);
@@ -107,7 +107,7 @@ namespace Elliptic
 		int i, j;
 		for (j = 1; j < Gy - 1; j++)
 			for (i = 1; i < Gx - 1; i++)
-				error = error + fabs(Tnew[i + j*Gx] - T[i + j*Gx]); //Error°è»ê
+				error = error + fabs(Tnew[i + j*Gx] - T[i + j*Gx]); //Errorê³„ì‚°
 		return error;
 	}
 	int CalJacobi(double *T, double *Tnew, double beta)
@@ -117,7 +117,7 @@ namespace Elliptic
 		do{
 			Jacobi(T, Tnew, beta);
 			error = CalErr(T, Tnew);
-			memcpy(T, Tnew, Gx*Gy*sizeof(double)); //T=Tnew¿¬»ê
+			memcpy(T, Tnew, Gx*Gy*sizeof(double)); //T=Tnewì—°ì‚°
 			iter++;
 			printf("iteration = %d\r", iter);
 		} while (error >= ermax);
@@ -131,7 +131,7 @@ namespace Elliptic
 		do{
 			PGS(T, Tnew, beta);
 			error = CalErr(T, Tnew);
-			memcpy(T, Tnew, Gx*Gy*sizeof(double)); //T=Tnew¿¬»ê
+			memcpy(T, Tnew, Gx*Gy*sizeof(double)); //T=Tnewì—°ì‚°
 			iter++;
 			printf("iteration = %d\r", iter);
 		} while (error >= ermax);
@@ -145,7 +145,7 @@ namespace Elliptic
 		do{
 			PSOR(T, Tnew, beta);
 			error = CalErr(T, Tnew);
-			memcpy(T, Tnew, Gx*Gy*sizeof(double)); //T=Tnew¿¬»ê
+			memcpy(T, Tnew, Gx*Gy*sizeof(double)); //T=Tnewì—°ì‚°
 			iter++;
 			printf("iteration = %d\r", iter);
 		} while (error >= ermax);
@@ -182,7 +182,7 @@ namespace Elliptic
 			sprintf(name, "%s.dat", str);
 		else
 			sprintf(name, "%s, w=%.3f.dat", str, w_Elliptic);
-		fp = fopen(name, "w"); //¾²±â±ÇÇÑ È¹µæ
+		fp = fopen(name, "w"); //ì“°ê¸°ê¶Œí•œ íšë“
 		fprintf(fp, "iteration=%d\n", iter);
 		fprintf(fp, "zone i=%d,j=%d\n", Gx, Gy);
 		for (j = 0; j < Gy; j++)

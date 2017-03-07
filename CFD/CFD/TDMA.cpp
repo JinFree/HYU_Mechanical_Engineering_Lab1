@@ -1,7 +1,7 @@
-#include "TDMA.h"
+ï»¿#include "TDMA.h"
 namespace matrix
 {
-	void TDMA(double *A, double *x, double *b, int N) //A*x=b, NÀº matrix size factor
+	void TDMA(double *A, double *x, double *b, int N) //A*x=b, Nï¿½ï¿½ matrix size factor
 	{
 		int i;
 		double *P = (double *)calloc(N, sizeof(double));

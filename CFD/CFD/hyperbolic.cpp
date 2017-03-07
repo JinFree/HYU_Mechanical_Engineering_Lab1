@@ -1,16 +1,16 @@
-#include "hyperbolic.h"
+ï»¿#include "hyperbolic.h"
 namespace Hyperbolic
 {
 	int scheme = 1;
 	int N = 0; // number of grid
-	int L = 0; // °¢ case º° domain length
+	int L = 0; // ê° case ë³„ domain length
 	double dx = 0.1;
 	double dt = 0.1;
 	double end_t = 1.0;
 	double c = 0.0;
 	void main(void)
 	{
-		//scheme Á¤ÇÏ¸é¼­ N ¼öÁ¤
+		//scheme ì •í•˜ë©´ì„œ N ìˆ˜ì •
 		scheme = schemeselector();
 		int CFL_Checker = 0;
 		dt = dt * 2.0;
@@ -21,7 +21,7 @@ namespace Hyperbolic
 			char str[50] = "Error";
 			NAME(str, scheme);
 			N = int(double(L) / dx);
-			//NÀ» ÀÌ¿ëÇØ¼­ U ¹× Unew »ı¼º
+			//Nì„ ì´ìš©í•´ì„œ U ë° Unew ìƒì„±
 			double *U = (double *)calloc(sizeof(double), N);
 			double *Unew = (double *)calloc(sizeof(double), N);
 			//Init

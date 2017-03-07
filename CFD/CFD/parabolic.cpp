@@ -1,4 +1,4 @@
-#include "parabolic.h"
+﻿#include "parabolic.h"
 namespace Parabolic
 {
 	void main(void)
