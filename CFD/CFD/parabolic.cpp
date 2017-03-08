@@ -13,14 +13,10 @@ namespace Parabolic
 		getchar();
 		diffusion = ( dinamic_viscosity * dt ) / (dx * dx);
 		printf("Diffusion = %.3f, dinamic_viscosity = %.3f\n", diffusion, dinamic_viscosity);
-		if (diffusion <= 0.5)
-			Explicit(diffusion, dx, dt, t_end, N, U0);
-		else
-		{
+		if (diffusion >= 0.5)
 			printf("You Cannot Get Right Answer In Explicit When Diffusion Number Larger Than 0.5\n");
-			Explicit(diffusion, dx, dt, t_end, N, U0);
-		}			
-		Implicit(diffusion, dx, dt, t_end, N, U0);
+		Explicit(diffusion, dx, dt, t_end, N, U0);
+		Implicit(diffusion, dx, dt, t_end, N, U0);		
 	}
 
 	void Init_Cond(double *U, double *Unew, int N)
