@@ -5,3 +5,8 @@ CFD/CFD/CFD.vcxproj
 CFD/CFD/CFD.vcxproj.filters
 CFD/CFD/Debug/vc120.idb
 *.opensdf
+*.opendb
+*.db
+*.dat
+*.iobj
+*.ipdb
