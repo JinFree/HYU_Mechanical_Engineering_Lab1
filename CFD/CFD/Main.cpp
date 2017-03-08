@@ -41,6 +41,7 @@ int Eqnselector(void)
 		else
 			printf("Input proper value\n");
 	}
+	printf("\n");
 	return Eqn;
 }
 void repeater(void)
@@ -58,5 +59,6 @@ void repeater(void)
 			printf("Wrong Input, program break\n");
 			return;
 		}
+		printf("\n");
 	}while (checker);
 }
