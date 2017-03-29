@@ -10,3 +10,11 @@ CFD/CFD/Debug/vc120.idb
 *.dat
 *.iobj
 *.ipdb
+*.pdb
+*.obj
+*.user
+*.log
+*.ilk
+*.suo
+CFD/Debug/CFD.exe
+CFD/Release/CFD.exe
