@@ -29,4 +29,5 @@ namespace Elliptic
 	void PSOR(double *T, double *Tnew, double beta);
 
 	void FileWriter(char str[50], double *T, int scheme, int iter);
+	void ParaWriter(char str[50], double *T, int scheme, int iter);
 }

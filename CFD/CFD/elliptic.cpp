@@ -14,6 +14,7 @@ namespace Elliptic
 		Boundary_Cond(T, Tnew);
 		iter = compute(T, Tnew, scheme);
 		FileWriter(str, T, scheme, iter);
+		ParaWriter(str, T, scheme, iter);
 		free(T);
 		free(Tnew);
 	}
@@ -189,5 +190,20 @@ namespace Elliptic
 			for (i = 0; i < Gx; i++)
 				fprintf(fp, "%f\t%f\t%f\n", double(i)*GSx, double(j)*GSy, T[i + j*Gx]);
 		fclose(fp);
+	}
+	void ParaWriter(char str[50], double *T, int scheme, int iter)
+	{
+		FILE *fp;
+		char name[50];
+		int i, j;
+		if (scheme <= 2)
+			sprintf(name, "%s, iter=%d.csv", str, iter);
+		else
+			sprintf(name, "%s, w=%.3f, iter=%d.csv", str, w_Elliptic, iter);
+		fp = fopen(name, "w"); //쓰기권한 획득
+		fprintf(fp, "x coord,y coord,z coord, temperature\n");
+		for (j = 0; j < Gy; j++)
+			for (i = 0; i < Gx; i++)
+				fprintf(fp, "%f,%f,%f,%f\n", double(i)*GSx, double(j)*GSy,0.f, T[i + j*Gx]);
 	}
 }

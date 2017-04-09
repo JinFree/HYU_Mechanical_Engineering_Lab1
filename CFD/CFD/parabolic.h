@@ -18,4 +18,5 @@ namespace Parabolic
 	void Time_Marching(double *U, double *Unew, int N);
 
 	void File_Write(double *U, int N, double dx, double t, FILE *file);
+	void ParaWriter(double *U, double t, int scheme, int N, double dx, double diffusion);
 }

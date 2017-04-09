@@ -12,7 +12,9 @@ namespace Hyperbolic
 	void NAME(char str[50], int scheme_num);
 
 	FILE* FileOpener(char str[50]);
-	void FileWriter(FILE *fp, double *U, double t);
+	void FileWriter(FILE *fp, double *U, double t);	
+	
+	void ParaWriter(char str[50], double *U, double t);
 
 	void Init_Cond(double *U, double *Unew, int scheme_num);
 	void Init_Linear(double *U, double *Unew);

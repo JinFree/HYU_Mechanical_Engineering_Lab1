@@ -18,3 +18,8 @@ CFD/CFD/Debug/vc120.idb
 *.suo
 CFD/Debug/CFD.exe
 CFD/Release/CFD.exe
+*.csv.*
+*.csv
+*.idb
+*.ipch
+*.pvsm

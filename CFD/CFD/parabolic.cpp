@@ -13,7 +13,7 @@ namespace Parabolic
 		getchar();
 		diffusion = ( dinamic_viscosity * dt ) / (dx * dx);
 		printf("Diffusion = %.3f, dinamic_viscosity = %.3f\n", diffusion, dinamic_viscosity);
-		if (diffusion >= 0.5)
+		if (diffusion > 0.5)
 			printf("You Cannot Get Right Answer In Explicit When Diffusion Number Larger Than 0.5\n");
 		Explicit(diffusion, dx, dt, t_end, N, U0);
 		Implicit(diffusion, dx, dt, t_end, N, U0);		
@@ -31,6 +31,7 @@ namespace Parabolic
 
 	void Explicit(double diffusion, double dx, double dt, double t_end, int N, int U0)
 	{
+		printf("Solve Explicit\n");
 		double *U = (double *)malloc(sizeof(double)* N);
 		double *Unew = (double *)malloc(sizeof(double)* N);
 		Init_Cond(U, Unew, N);
@@ -45,8 +46,11 @@ namespace Parabolic
 		for (int i = 0; i <= iter;i++)
 		{
 			t = i*dt;
+			printf("\rt=%lf", t);
+			ParaWriter(U, t, 1, N, dx, diffusion);
 			Explicit_Solver(U, Unew, diffusion, t, dx, N, Parabolic_Explicit, i);
 		}
+		printf("\n");
 		fclose(Parabolic_Explicit);
 		free(U);
 		free(Unew);
@@ -69,6 +73,7 @@ namespace Parabolic
 	
 	void Implicit(double diffusion, double dx, double dt, double t_end, int N, int U0)
 	{
+		printf("Solve Implicit\n");
 		double *U = (double *)malloc(sizeof(double)* N);
 		double *Unew = (double *)malloc(sizeof(double)* N);
 		double *A = (double *)malloc(sizeof(double)* 3);
@@ -85,8 +90,11 @@ namespace Parabolic
 		for (int i = 0; i <= iter; i++)
 		{
 			t = i*dt;
+			printf("\rt=%lf", t);
+			ParaWriter(U, t, 2, N, dx, diffusion);
 			Implicit_Solver(U, Unew, A, diffusion, t, dx, N, Parabolic_Implicit, i);
 		}
+		printf("\n");
 		fclose(Parabolic_Implicit);
 		free(U);
 		free(Unew);
@@ -116,5 +124,22 @@ namespace Parabolic
 		fprintf(file, "zone T=\"t=%.6f\"\n", t);
 		for (int i = 0; i < N; i++)
 			fprintf(file, "%f\t%f\n", U[i], i*dx);
+	}
+	void ParaWriter(double *U, double t, int scheme, int N, double dx, double diffusion)
+	{
+		FILE *fp;
+		char name[100]="error";
+		if (scheme == 1)
+			sprintf(name, "FTCS, diffusion = %.3f.csv.%lf", diffusion, t);
+		if(scheme == 2)
+			sprintf(name, "Lassonen, diffusion = %.3f.csv.%lf", diffusion, t);
+		fp = fopen(name, "w");
+		fprintf(fp, "x coord,y coord,z coord, velocity\n");
+		int i;
+		for (i = 0; i<N; i++)
+		{
+			fprintf(fp, "%f,0.f,0.f,%f\n", double(i*dx), U[i]);
+		}
+		fclose(fp);
 	}
 }

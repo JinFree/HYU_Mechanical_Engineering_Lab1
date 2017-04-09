@@ -36,6 +36,7 @@ namespace Hyperbolic
 			//Calculate & Filewrite
 			for (t = 0.0; t < end_t + dt; t += dt)
 			{
+				ParaWriter(str, U, t);
 				printf("\rt=%.3f", t);
 				FileWriter(fp, U, t);
 				SCHEMEOPEN(U, Unew, scheme);
@@ -140,6 +141,21 @@ namespace Hyperbolic
 		{
 			fprintf(fp, "%f\t%f\n", double(i*dx), U[i]);
 		}
+	}
+
+	void ParaWriter(char str[50], double *U, double t)
+	{
+		FILE *fp;
+		char name[100];
+		sprintf(name, "%s, CFL = %.2f, dt = %.3f.csv.%lf", str, c, dt, t);
+		fp = fopen(name, "w");
+		fprintf(fp, "x coord,y coord,z coord, velocity\n");
+		int i;
+		for (i = 0; i<N; i++)
+		{
+			fprintf(fp, "%f,0.f,0.f,%f\n", double(i*dx), U[i]);
+		}
+		fclose(fp);
 	}
 
 	void Init_Cond(double *U, double *Unew, int scheme_num)
