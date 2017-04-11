@@ -1,11 +1,14 @@
-ï»¿# HYU_Mechanical_Engineering_Lab1
-í•œì–‘ëŒ€í•™êµ ê¸°ê³„ê³µí•™ì‹¤í—˜1
+# HYU Mechanical Engineering Lab.1
+ÇÑ¾ç´ëÇĞ±³ ±â°è°øÇĞ½ÇÇè1
 
 Finite Difference Method for Computational Fluid Dynamics
-ì „ì‚°ìœ ì²´ì—­í•™ì„ ìœ„í•œ ìœ í•œì°¨ë¶„ë²•
+Àü»êÀ¯Ã¼¿ªÇĞÀ» À§ÇÑ À¯ÇÑÂ÷ºĞ¹ı
 
 Undergraduate course
-í•™ë¶€ ìˆ˜ì—…
+ÇĞºÎ ¼ö¾÷
 
-Hoffman êµì¬ ë§í¬: 
+Hoffman ±³Àç ¸µÅ©: 
 http://sharif.ir/~moosavi/Hoffmann_v1.pdf
+
+Paraview ´Ù¿î·Îµå ¸µÅ©:
+http://www.paraview.org/download/
